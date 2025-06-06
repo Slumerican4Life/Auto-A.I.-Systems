@@ -1,0 +1,57 @@
+{
+  "workflow_type": "review_referral",
+  "active": true,
+  "actions": {
+    "review_request": {
+      "channel": "email",
+      "message_template": "review_request",
+      "delay_hours": 48
+    },
+    "review_reminder": {
+      "channel": "email",
+      "message_template": "review_reminder",
+      "delay_hours": 72,
+      "condition": "no_review"
+    },
+    "referral_offer": {
+      "channel": "email",
+      "message_template": "referral_offer",
+      "delay_hours": 24,
+      "condition": "positive_review"
+    },
+    "referral_reminder": {
+      "channel": "email",
+      "message_template": "referral_reminder",
+      "delay_hours": 168,
+      "condition": "no_referral_use"
+    }
+  },
+  "settings": {
+    "review_platforms": ["google", "yelp"],
+    "positive_review_threshold": 4,
+    "auto_verify_reviews": true,
+    "notification_email": "support@example.com",
+    "ai_personalization": true,
+    "ai_settings": {
+      "tone": "friendly",
+      "max_length": 300,
+      "personalization_level": "medium"
+    },
+    "referral_offer": {
+      "referrer_offer": "10% off next purchase",
+      "description": "$20 off for new customers",
+      "expiration_days": 30
+    }
+  },
+  "templates": {
+    "review_request": "Hi {{customer_name}},\n\nThank you for your recent purchase from {{business_name}}. We hope you're enjoying your {{product_name}}!\n\nWe'd love to hear your feedback. Could you take a moment to leave us a review?\n\n{{review_links}}\n\nYour feedback helps us improve and helps other customers make informed decisions.\n\nThank you,\n{{business_name}} Team",
+    "review_reminder": "Hi {{customer_name}},\n\nWe hope you're enjoying your recent purchase from {{business_name}}.\n\nWe noticed you haven't left a review yet. Your feedback is valuable to us and would help other customers.\n\n{{review_links}}\n\nIt only takes a minute!\n\nThank you,\n{{business_name}} Team",
+    "referral_offer": "Hi {{customer_name}},\n\nThank you for your positive review! We're thrilled that you're happy with your purchase.\n\nWe'd love to extend a special offer to you and your friends. Share the following referral code with friends and family:\n\nCode: {{referral_code}}\n\nWhen they use this code, they'll receive {{referral_offer_description}}. And as a thank you, you'll get {{referrer_offer}}!\n\nThank you for your support,\n{{business_name}} Team",
+    "referral_reminder": "Hi {{customer_name}},\n\nJust a friendly reminder about your referral code: {{referral_code}}\n\nShare it with friends and family, and they'll receive {{referral_offer_description}}. Plus, you'll get {{referrer_offer}} when they make a purchase!\n\nYour code expires on {{expiration_date}}.\n\nThank you,\n{{business_name}} Team"
+  },
+  "triggers": {
+    "sale_status": ["completed"],
+    "product_categories": ["all"]
+  }
+}
+

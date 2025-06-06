@@ -1,0 +1,53 @@
+{
+  "workflow_type": "lead_nurturing",
+  "active": true,
+  "actions": {
+    "initial_contact": {
+      "channel": "email",
+      "message_template": "initial_contact",
+      "delay_hours": 0
+    },
+    "follow_up": [
+      {
+        "channel": "email",
+        "message_template": "follow_up_1",
+        "delay_hours": 24,
+        "condition": "no_reply"
+      },
+      {
+        "channel": "email",
+        "message_template": "follow_up_2",
+        "delay_hours": 72,
+        "condition": "no_reply"
+      },
+      {
+        "channel": "sms",
+        "message_template": "follow_up_sms",
+        "delay_hours": 96,
+        "condition": "no_reply"
+      }
+    ]
+  },
+  "settings": {
+    "lead_sources": ["website_form", "ad_campaign", "manual_entry"],
+    "auto_assign": true,
+    "notification_email": "sales@example.com",
+    "ai_personalization": true,
+    "ai_settings": {
+      "tone": "professional",
+      "max_length": 300,
+      "personalization_level": "high"
+    }
+  },
+  "templates": {
+    "initial_contact": "Hi {{lead_name}},\n\nThank you for your interest in {{business_name}}. We specialize in {{products_services}} and have helped many businesses like yours achieve their goals.\n\nI'd love to learn more about your specific needs. Would you be available for a quick call this week?\n\nBest regards,\n{{user_name}}\n{{business_name}}",
+    "follow_up_1": "Hi {{lead_name}},\n\nI wanted to follow up on my previous message about {{business_name}} and our {{products_services}}.\n\nI'd be happy to answer any questions you might have. Would you like to schedule a brief call?\n\nBest regards,\n{{user_name}}\n{{business_name}}",
+    "follow_up_2": "Hi {{lead_name}},\n\nI'm reaching out one last time regarding your interest in {{business_name}}.\n\nWe've helped many businesses in the {{industry}} industry improve their operations with our {{products_services}}.\n\nIf you're still interested, please let me know and I'll be happy to help.\n\nBest regards,\n{{user_name}}\n{{business_name}}",
+    "follow_up_sms": "Hi {{lead_name}}, this is {{user_name}} from {{business_name}}. I sent you some information about our {{products_services}}. Would you like to learn more? Reply YES to schedule a call."
+  },
+  "triggers": {
+    "lead_source": ["website_form", "ad_campaign", "manual_entry"],
+    "lead_status": ["new"]
+  }
+}
+

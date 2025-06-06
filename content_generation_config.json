@@ -1,0 +1,133 @@
+{
+  "workflow_type": "content_generation",
+  "active": true,
+  "actions": {
+    "blog_post": {
+      "schedule": {
+        "frequency": "weekly",
+        "day_of_week": "Monday",
+        "time": "09:00"
+      },
+      "parameters": {
+        "word_count": 800,
+        "tone": "professional",
+        "include_images": true,
+        "seo_optimization": true
+      },
+      "publishing": {
+        "platform": "wordpress",
+        "status": "draft",
+        "categories": ["Business", "Technology"],
+        "tags": ["automation", "ai", "business growth"]
+      }
+    },
+    "social_media": [
+      {
+        "schedule": {
+          "frequency": "daily",
+          "time": "12:00"
+        },
+        "parameters": {
+          "platform": "linkedin",
+          "content_type": "text",
+          "tone": "professional",
+          "include_hashtags": true
+        },
+        "publishing": {
+          "platform": "buffer",
+          "status": "scheduled"
+        }
+      },
+      {
+        "schedule": {
+          "frequency": "daily",
+          "time": "15:00"
+        },
+        "parameters": {
+          "platform": "twitter",
+          "content_type": "text",
+          "tone": "conversational",
+          "include_hashtags": true
+        },
+        "publishing": {
+          "platform": "buffer",
+          "status": "scheduled"
+        }
+      }
+    ],
+    "email_newsletter": {
+      "schedule": {
+        "frequency": "monthly",
+        "day_of_month": 1,
+        "time": "10:00"
+      },
+      "parameters": {
+        "word_count": 500,
+        "tone": "friendly",
+        "include_images": true,
+        "sections": ["company_news", "industry_insights", "tips_and_tricks"]
+      },
+      "publishing": {
+        "platform": "mailchimp",
+        "status": "draft",
+        "list_id": "list-123",
+        "template_id": "template-123"
+      }
+    }
+  },
+  "settings": {
+    "content_topics": [
+      "business automation",
+      "ai in business",
+      "productivity tips",
+      "customer engagement",
+      "sales strategies"
+    ],
+    "content_guidelines": {
+      "brand_voice": "professional yet approachable",
+      "prohibited_topics": ["politics", "religion", "controversial issues"],
+      "call_to_action": "Contact us for a free consultation",
+      "company_description": "Leading provider of AI-powered business automation solutions"
+    },
+    "notification_email": "marketing@example.com",
+    "ai_settings": {
+      "creativity_level": 0.7,
+      "max_retries": 3
+    }
+  },
+  "templates": {
+    "blog_post": {
+      "title_format": "{{topic}}: {{subtitle}}",
+      "structure": [
+        "introduction",
+        "problem_statement",
+        "solution",
+        "benefits",
+        "implementation_tips",
+        "conclusion",
+        "call_to_action"
+      ]
+    },
+    "social_media": {
+      "linkedin": "{{hook}} {{main_point}} {{supporting_evidence}} {{call_to_action}} {{hashtags}}",
+      "twitter": "{{hook}} {{main_point}} {{call_to_action}} {{hashtags}}"
+    },
+    "email_newsletter": {
+      "subject_format": "{{month_year}} Newsletter: {{main_topic}}",
+      "structure": [
+        "greeting",
+        "introduction",
+        "company_news",
+        "industry_insights",
+        "tips_and_tricks",
+        "conclusion",
+        "call_to_action"
+      ]
+    }
+  },
+  "triggers": {
+    "schedule": true,
+    "manual": true
+  }
+}
+
